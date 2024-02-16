@@ -1,0 +1,35 @@
+<div class="container my-5">
+   <div>
+    <app-search-products 
+    (searchEvent)="searchEvent($event)"></app-search-products>
+   </div>
+    <div class="row">
+        
+        <ng-container *ngFor="let product of allProducts.products">
+            <ng-container>
+        <div class="col-md-3" *ngIf="product?.title.includes(searchValue)">
+            <div class="card" style="width: 18rem;">
+                <ng-container >
+                    <img [src]="product?.images[0]" class="card-img-top" alt="...">
+                </ng-container>
+                <div class="card-body">
+                  <h5 class="card-title">{{product?.title}}</h5>
+                  <span class="card-description">{{product?.description}}</span>
+                  <a href="#" class="btn btn-outline-primary w-100">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+        
+        </ng-container>
+    </ng-container>
+    <ng-template *ngIf="searchValue">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>No Results Found</h3>
+            </div>
+        </div>
+    </ng-template>
+    </div>
+    
+    
+</div>

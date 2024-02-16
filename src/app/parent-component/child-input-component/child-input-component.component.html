@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h5>
+                Name Of Employee: <span class="tetxt-light">{{getName}}</span>
+                <!-- <br>    -->
+                Status: <span>{{getStatus}}</span>
+            </h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Employee Name</th>
+                  <th scope="col">Employee Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of getNewEmpObj">
+                  <td>{{item.name}}</td>
+                  <td>{{item.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3"></div>
+        <label class="form-label">Change Title</label>
+        <input class="form-control" #title>
+    </div>
+    <button type="button" class="btn btn-outline-primary" (click)="sendTitle(title.value)">send Title</button>
+</div>

@@ -1,0 +1,31 @@
+<div class="container my-5">
+    <div class="row" class="">
+        <div class="col-12">
+            <div class="bg-primary text-white text-center py-2 mb-3">
+                <h3>{{title}}</h3>
+            </div>
+            <form>
+              <div class="mb-3">
+                <label  class="form-label">First Name</label>
+                <input  class="form-control" #name>
+              </div>
+              <div class="mb-3">
+                <label  class="form-label">Status</label>
+                <input class="form-control" #status>
+              </div>
+              <button class="btn btn-primary" (click)="onSubmit(name.value,status.value)">Submit</button>
+            </form>
+        </div>
+        <div class="col-12">
+            <div class="bg-primary text-white text-center py-2 my-3">
+                <h3>Child Component</h3>
+            </div>
+            <app-child-input-component
+             [getName]="empName"
+             [getStatus]="empStatus"
+             [getNewEmpObj]="newEmpObj"
+             (sendTextToParent)="giveTitle($event)"
+             ></app-child-input-component>
+        </div>
+    </div>
+</div>
